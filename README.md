@@ -12,5 +12,5 @@ NLP é uma abreviação para Processamento de Linguagem Natural, ele vai traduzi
 
 Baixe o repositório e importe.
 
-* No watson: na área de skill, clique em "create skill" e depois em Import
+* No Watson: na área de skill, clique em "create skill" e depois em Import
 * NO DialogFlow: clique nas configurações (símbolo da rodinha dentada) e clique em "importar"
