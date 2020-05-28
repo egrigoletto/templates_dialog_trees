@@ -1,0 +1,478 @@
+{
+  "intents": [
+    {
+      "intent": "consulta",
+      "examples": [
+        {
+          "text": "quero ver"
+        },
+        {
+          "text": "quanto tem"
+        },
+        {
+          "text": "qual é o"
+        },
+        {
+          "text": "qual é a"
+        },
+        {
+          "text": "qual eh a"
+        },
+        {
+          "text": "qual eh o"
+        },
+        {
+          "text": "quanto tenho"
+        },
+        {
+          "text": "quanto é"
+        },
+        {
+          "text": "quantos é"
+        },
+        {
+          "text": "quantos tem"
+        },
+        {
+          "text": "quantos sao"
+        },
+        {
+          "text": "quantos são"
+        },
+        {
+          "text": "quantos vale"
+        },
+        {
+          "text": "Quero saber"
+        },
+        {
+          "text": "quanto vale"
+        }
+      ],
+      "description": "Executa pedidos de consulta de qualquer natureza"
+    },
+    {
+      "intent": "saudacao",
+      "examples": [
+        {
+          "text": "oie"
+        },
+        {
+          "text": "eae"
+        },
+        {
+          "text": "olá"
+        },
+        {
+          "text": "ola"
+        },
+        {
+          "text": "daê"
+        },
+        {
+          "text": "salve"
+        },
+        {
+          "text": "bom momento"
+        },
+        {
+          "text": "e aí"
+        },
+        {
+          "text": "opa"
+        },
+        {
+          "text": "bom dia"
+        },
+        {
+          "text": "boa tarde"
+        },
+        {
+          "text": "boa noite"
+        },
+        {
+          "text": "oi"
+        }
+      ],
+      "description": "Saudação"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "tipo_conta",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "poupanca",
+          "synonyms": [
+            "poupança",
+            "poupanca",
+            "conta fixa",
+            "conta poupança",
+            "minhas economias",
+            "o que poupei",
+            "guardado"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "corrente",
+          "synonyms": [
+            "conta corrente",
+            "corrente",
+            "conta pessoa física",
+            "conta plano plus"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "carteira",
+          "synonyms": [
+            "dinheiro",
+            "especie",
+            "espécie",
+            "carteira"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "geral",
+          "synonyms": [
+            "a soma",
+            "geral"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "saldo",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "saldo",
+          "synonyms": [
+            "saldo",
+            "din-din",
+            "valor de saldo",
+            "saldo conta",
+            "valor na conta",
+            "tem na conta",
+            "grana na conta",
+            "grana",
+            "ve na conta",
+            "vê na conta",
+            "ve na minha conta",
+            "eu tenho na conta",
+            "eu tenho no banco"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Consulta de Saldo Para Conta Carteira",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sua carteira tem XXX,XX reais de valor até agora. Continue assim!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1590087826403",
+      "conditions": "@tipo_conta:carteira",
+      "dialog_node": "node_4_1590089048012",
+      "previous_sibling": "node_2_1590088999211"
+    },
+    {
+      "type": "standard",
+      "title": "Solicita Tipo Conta",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para qual tipo de conta quer saber o saldo?"
+              },
+              {
+                "text": "Eu não sei qual é o tipo de conta que precisa saber o saldo, por favor selecione o tipo de conta abaixo:"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Corrente\nPoupança\nCarteira\nGeral"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1590087826403",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_9_1590088749115"
+      },
+      "conditions": "anything_else",
+      "dialog_node": "node_7_1590089884784",
+      "previous_sibling": "node_4_1590089048012"
+    },
+    {
+      "type": "standard",
+      "title": "Consulta de Saldo Para Conta Poupança",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Você tem economias no valor de XXX,XX reais. Saldo até o presente momento. Poupe a todo momento."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1590087826403",
+      "conditions": "@tipo_conta:poupanca",
+      "dialog_node": "node_2_1590088999211",
+      "previous_sibling": "node_9_1590088749115"
+    },
+    {
+      "type": "standard",
+      "title": "Consulta de Saldo Para Conta Corrente",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O saldo para sua conta corrente é de XXX,XX reais. Saldo até o presente momento"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1590087826403",
+      "conditions": "@tipo_conta:corrente",
+      "dialog_node": "node_9_1590088749115"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Saldo De Conta Poupanca",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Saldo da sua Conta Poupança é XXX,XX reais até o fim da data de hoje."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1590089614462",
+      "conditions": "@tipo_conta:poupanca",
+      "dialog_node": "node_1_1590087823739",
+      "previous_sibling": "node_1_1590087648826"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Saldo De Conta Geral",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Saldo da sua Conta Geral é XXX,XX reais até o fim da data de hoje."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1590089614462",
+      "conditions": "@tipo_conta:geral",
+      "dialog_node": "node_4_1590089250055",
+      "previous_sibling": "node_3_1590088036359"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Saldo De Conta Carteira",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Saldo da sua Conta Carteira é XXX,XX reais até o fim da data de hoje."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1590089614462",
+      "conditions": "@tipo_conta:carteira",
+      "dialog_node": "node_3_1590088036359",
+      "previous_sibling": "node_1_1590087823739"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Saldo de Conta Corrente",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Saldo da sua Conta Corrente é XXX,XX reais até o fim da data de hoje."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1590089614462",
+      "conditions": "@tipo_conta:corrente",
+      "dialog_node": "node_1_1590087648826"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Por Tipo de Conta",
+      "output": {
+        "generic": []
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_1_1590087648826"
+      },
+      "conditions": "#consulta",
+      "dialog_node": "node_4_1590089614462",
+      "previous_sibling": "node_2_1590087826403"
+    },
+    {
+      "type": "standard",
+      "title": "Consultar Por Saldo",
+      "output": {
+        "generic": []
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_9_1590088749115"
+      },
+      "conditions": "#consulta && @saldo",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_2_1590087826403",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              },
+              {
+                "text": "Infelizmente eu não entendi, mas podemos tentar novamente.\nEm que posso ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_4_1590089614462",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá. Como posso te ajudar?"
+              },
+              {
+                "text": "Oi, espero que esteja bem, como posso ajudar você?"
+              },
+              {
+                "text": "Fico feliz que tenha vindo me consultar, o que posso fazer por você hoje?"
+              },
+              {
+                "text": "Bom momento para você! Estou sempre pronto para te ajudar, é só pedir!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "context": {
+        "timezone": "America/Sao_Paulo"
+      },
+      "conditions": "welcome || #saudacao",
+      "dialog_node": "Bem-vindo"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "Gerenciador Financeiro",
+  "language": "pt-br",
+  "description": "Gerenciador fincnceiro de exemplo, supostamente ele terá integração de backend"
+}

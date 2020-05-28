@@ -1,0 +1,554 @@
+{
+  "intents": [
+    {
+      "intent": "despedida",
+      "examples": [
+        {
+          "text": "vlw"
+        },
+        {
+          "text": "falou"
+        },
+        {
+          "text": "flw"
+        },
+        {
+          "text": "Tchau"
+        },
+        {
+          "text": "bye"
+        },
+        {
+          "text": "até mais"
+        },
+        {
+          "text": "muito obrigado"
+        },
+        {
+          "text": "saionara"
+        }
+      ],
+      "description": "O usuário se despede do bot"
+    },
+    {
+      "intent": "saudacao",
+      "examples": [
+        {
+          "text": "e ae"
+        },
+        {
+          "text": "oi"
+        },
+        {
+          "text": "opa"
+        },
+        {
+          "text": "bom dia"
+        },
+        {
+          "text": "boa tarde"
+        },
+        {
+          "text": "boa noite"
+        },
+        {
+          "text": "olá"
+        },
+        {
+          "text": "e aí"
+        },
+        {
+          "text": "salve"
+        },
+        {
+          "text": "saudações"
+        }
+      ],
+      "description": "O usuário faz uma saudação"
+    },
+    {
+      "intent": "contato",
+      "examples": [
+        {
+          "text": "como posso enviar uma mensagem para vocês"
+        },
+        {
+          "text": "como faz para contatar"
+        },
+        {
+          "text": "vocês tem conta em banco para eu ajudar"
+        },
+        {
+          "text": "como posso entrar em contato"
+        },
+        {
+          "text": "como eu posso fazer doação"
+        },
+        {
+          "text": "qual o email de vocês"
+        },
+        {
+          "text": "qual o facebook de vocês"
+        },
+        {
+          "text": "qual o whatsapp de vocês"
+        },
+        {
+          "text": "me passa o zap da organização"
+        },
+        {
+          "text": "vocês tem telefone"
+        }
+      ],
+      "description": "perguntas sobre como contatar os membros do projeto"
+    },
+    {
+      "intent": "adocao",
+      "examples": [
+        {
+          "text": "eu posso adotar"
+        },
+        {
+          "text": "quais cachorros você tem para adoção"
+        },
+        {
+          "text": "posso ver os cachorros que você tem para adoção"
+        },
+        {
+          "text": "quais são os cachorrinhos que estão esperando por um dono"
+        },
+        {
+          "text": "me mostre os animais para adoção"
+        },
+        {
+          "text": "como faço para adotar um cãozinho"
+        },
+        {
+          "text": "o que eu preciso fazer para adotar"
+        },
+        {
+          "text": "como posso adotar um cãozinho?"
+        },
+        {
+          "text": "o que preciso fazer para adotar?"
+        }
+      ],
+      "description": "perguntas a respeito da adoção"
+    },
+    {
+      "intent": "sobre_projeto",
+      "examples": [
+        {
+          "text": "como funciona o projeto"
+        },
+        {
+          "text": "o que vocês fazem"
+        },
+        {
+          "text": "que tipo de adoção vocês fazem?"
+        },
+        {
+          "text": "o que é o projeto cão feliz"
+        },
+        {
+          "text": "me fale a respeito do projeto"
+        },
+        {
+          "text": "quero saber mais sobre o projeto"
+        }
+      ],
+      "description": "perguntas a respeito do projeto"
+    },
+    {
+      "intent": "castracao",
+      "examples": [
+        {
+          "text": "que raças eu posso castrar na ong de vocês"
+        },
+        {
+          "text": "quero castrar"
+        },
+        {
+          "text": "vocês fazem castracao"
+        },
+        {
+          "text": "como faço para castrar"
+        },
+        {
+          "text": "vocês tem castração gratuita"
+        },
+        {
+          "text": "preciso castrar meu"
+        }
+      ],
+      "description": "perguntas sobre castracao"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "saudacao-especial",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "bom_dia",
+          "synonyms": [
+            "dia",
+            "bom dia",
+            "boa manhã"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "boa_tarde",
+          "synonyms": [
+            "boa tarde",
+            "tarde"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "boa_noite",
+          "synonyms": [
+            "boa noite",
+            "noite",
+            "saudações noturnas"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "genercica",
+          "synonyms": [
+            "e ae",
+            "beleza",
+            "opa",
+            "e  aí",
+            "olá, oi",
+            "tudo bem",
+            " tudo certo"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "genero",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "femea",
+          "synonyms": [
+            "femea",
+            "cachorrinha",
+            "cadela",
+            "cadelinha",
+            "cachorrinea",
+            "gata",
+            "gatinha",
+            "cãozinha"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "macho",
+          "synonyms": [
+            "macho",
+            "cachorro",
+            "gato",
+            "cão",
+            "cãozinho",
+            "cachorrino",
+            "cachorrineo"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Saudação boa tarde",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Boa tarde! Espero que esteja bem. 🙂"
+              },
+              {
+                "text": "Tenha uma ótima tarde você também! 😁"
+              },
+              {
+                "text": "Essa tarde está boa! Espero que para os humanos o sentimento seja o mesmo! 🤖🤖🤖"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_2_1590676207367",
+      "conditions": "#saudacao && @saudacao-especial:boa_tarde",
+      "dialog_node": "node_1_1590676529135",
+      "previous_sibling": "node_5_1590676218262"
+    },
+    {
+      "type": "standard",
+      "title": "Saudação boa noite",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Boa noite! Espero que esteja bem. 🙂"
+              },
+              {
+                "text": "Tenha uma boa noite você também! 😁"
+              },
+              {
+                "text": "Que para os humanos essa noite seja fantástica, muito boa noite para você que fala comigp! 🤖🤖🤖"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_2_1590676207367",
+      "conditions": "#saudacao && @saudacao-especial:boa_noite",
+      "dialog_node": "node_2_1590676531311",
+      "previous_sibling": "node_1_1590676529135"
+    },
+    {
+      "type": "standard",
+      "title": "Saudação padrão",
+      "parent": "node_2_1590676207367",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "Bem-vindo"
+      },
+      "conditions": "#saudacao",
+      "dialog_node": "node_1_1590676756378",
+      "previous_sibling": "node_2_1590676531311"
+    },
+    {
+      "type": "standard",
+      "title": "Saudação bom dia",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Bom dia! Espero que esteja bem. 🙂"
+              },
+              {
+                "text": "Tenha um bom dia você também! 😁"
+              },
+              {
+                "text": "Grande dia esse! Espero que para os humanos o sentimento seja o mesmo! 🤖🤖🤖"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "parent": "node_2_1590676207367",
+      "conditions": "#saudacao && @saudacao-especial:bom_dia",
+      "dialog_node": "node_5_1590676218262"
+    },
+    {
+      "type": "standard",
+      "title": "Adoção",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Aqui você fica sabendo de todos os cachorrinhos lindos que estão esperando um dono. Se você ama os animais e pode cuidar de um deles, não hesite, entre contato conosco ou vá a uma de nossas feiras de adoção no primeiro sábado do mês!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "Cãozinho Beagle",
+            "source": "https://uploads.metropoles.com/wp-content/uploads/2020/01/20173559/ne-960x639.jpg",
+            "description": "Dê um lar para este 🐶",
+            "response_type": "image"
+          },
+          {
+            "title": "Vira latas ",
+            "source": "https://www.petz.com.br/blog/wp-content/uploads/2019/05/quantos-anos-vive-um-cachorro-vira-lata-1200x805.jpg",
+            "description": "Dê um lar para este cãozinho",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "Esses fofuchos estão te esperando, venha conhecê-los! 😉"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#adocao",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_7_1590677721887",
+      "previous_sibling": "node_2_1590676207367"
+    },
+    {
+      "type": "folder",
+      "title": "Saudação Customizada",
+      "dialog_node": "node_2_1590676207367",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Castração",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Realizamos a castração de cães e gatos (sem raça definida)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#castracao",
+      "dialog_node": "node_10_1590678321902",
+      "previous_sibling": "node_7_1590677721887"
+    },
+    {
+      "type": "standard",
+      "title": "Sobre o projeto",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Somos uma entidade sem fins lucrativos, ms precisamos de dinheiro para pagar as contas do abrigo.  😨"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Para nos ajudar seguem as contas abaixo:"
+              },
+              {
+                "text": "Banco X\nConta Corrente YYYYY-YY\nAgência ZZZ-ZZ\n\nAgradecemos do fundo do coração 🥰."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "conditions": "#sobre_projeto",
+      "dialog_node": "node_8_1590677285806",
+      "previous_sibling": "node_10_1590678321902"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_8_1590677285806",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá 🙂! Como posso te ajudar?"
+              },
+              {
+                "text": "Bem vindo ao Projeto Cão Feliz! 🐶"
+              },
+              {
+                "text": "Oi, seja muito bem vindo 😊. Somos do Projeto Cão Feliz!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          },
+          {
+            "values": [
+              {
+                "text": "O que podemos fazer por você hoje?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "quero castrar minha gatinha"
+    }
+  ],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "PROJETO_CAO_FELIZ",
+  "language": "pt-br",
+  "description": "Baseado no site projetocaofeliz.org.br"
+}
